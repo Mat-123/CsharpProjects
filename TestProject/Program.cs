@@ -1,10 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
-string[] fraudulentOrderIDs = [ "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" ];
+/*
+This code reverses the message, counts how many times a particular
+letter appears the prints the results in the console.
+*/
+string originalMessage = "The quick brown fox jumps over the lazy dog.";
 
-foreach ( string fraudulentOrderFiltered in fraudulentOrderIDs)
-{
-    if ( fraudulentOrderFiltered.StartsWith("B"))
-    {
-        Console.WriteLine($"This is a fraudulent order: {fraudulentOrderFiltered}");
-    }
+char[] message = originalMessage.ToCharArray();
+Array.Reverse(message);
+
+int letterCount = 0;
+
+foreach (char letter in message) 
+{ 
+    if (letter == 'o') 
+    { 
+        letterCount++; 
+    } 
 }
+
+string newMessage = new String(message);
+
+Console.WriteLine(newMessage);
+Console.WriteLine($"'o' appears {letterCount} times.");
