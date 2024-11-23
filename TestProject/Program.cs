@@ -1,24 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
-/*
-This code reverses the message, counts how many times a particular
-letter appears the prints the results in the console.
-*/
-string originalMessage = "The quick brown fox jumps over the lazy dog.";
+﻿string permission = "Admin|Manager";
 
-char[] message = originalMessage.ToCharArray();
-Array.Reverse(message);
+int level = 60;
 
-int letterCount = 0;
-
-foreach (char letter in message) 
-{ 
-    if (letter == 'o') 
-    { 
-        letterCount++; 
-    } 
+if (permission.Contains("Admin") && level > 55)
+{
+    Console.WriteLine("Welcome, Super Admin user.");
 }
-
-string newMessage = new String(message);
-
-Console.WriteLine(newMessage);
-Console.WriteLine($"'o' appears {letterCount} times.");
+else if (permission.Contains("Admin") && level <= 55)
+{
+    Console.WriteLine("Welcome, Admin user.");
+}
+else if (permission.Contains("manager") && level >= 20)
+{
+    Console.WriteLine("Contact an Admin for access.");
+}
+else if (permission.Contains("manager") && level < 20)
+{
+    Console.WriteLine("You do not have sufficient privileges.");
+}
+else
+{
+    Console.WriteLine("You do not have sufficient privileges.");
+}
